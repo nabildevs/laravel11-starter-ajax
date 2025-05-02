@@ -1,4 +1,4 @@
-const ajax_preloader = `<div class="d-flex justify-content-center align-items-center"><div class="spinner-border text-info spinner-border-lg" role="status"></div></div>`;
+const ajax_preloader = `<div class="d-flex justify-content-center align-items-center"><div class="spinner-border text-primary spinner-border-lg" role="status"></div></div>`;
 const ajax_on_type_delay = 500;
 
 function ajaxRenderTo(target_selector, route, method = 'get') {
@@ -20,15 +20,15 @@ $(document).on('click', '.ajax_modal_btn', function () {
 	let self = $(this);
 	let modal_selector = self.data('modal-selector') ?? '#common-modal';
 	let modal = $(modal_selector);
+	let modal_dialog = modal.find('.modal-dialog');
 
 	modal.find('#modal_title').text(self.data('modal-title'));
+	modal.removeClass('modal-sm modal-lg modal-xl modal-xxl');
 
 	let modal_size = self.data('modal-size');
 
 	if (modal_size) {
-		modal.addClass('modal-' + modal_size);
-	} else {
-		modal.removeClass('modal-sm modal-lg modal-xl modal-xxl');
+		modal_dialog.addClass('modal-' + modal_size);
 	}
 
 	modal.modal('show');

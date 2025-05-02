@@ -21,6 +21,7 @@
         </div>
     </div>
     @include('layouts.parts.footer')
+    @include('layouts.parts.common-modal', ['id' => 'common-modal'])
     @include('layouts.parts.script')
     @stack('js')
 </body>

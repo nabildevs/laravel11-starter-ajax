@@ -11,3 +11,6 @@
 
 {{-- Alertify --}}
 <script src="{{ asset('assets/js/alertify.min.js') }}"></script>
+
+{{-- Modul --}}
+<script src="{{ asset('js/ajax.js') }}"></script>

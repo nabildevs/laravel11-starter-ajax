@@ -95,7 +95,7 @@
                 <li class="dropdown pc-h-item header-user-profile">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                        <img src="{{ asset('assets/images/avatar-1.jpg') }}" alt="user-image" class="user-avtar">
+                        <img src="{{ asset('images/avatar-1.jpg') }}" alt="user-image" class="user-avtar">
                         <span>{{ auth()->user()->name }}</span>
                     </a>
                     <div
@@ -108,7 +108,8 @@
                             <i class="ti ti-user me-2"></i>
                             <span>Profile</span>
                         </a>
-                        <a href="#!" class="dropdown-item">
+                        <a class="dropdown-item ajax_modal_btn" href="javascript:;" data-modal-title="Business Profile"
+                            data-render-route="{{ route('setting.edit', ['setting' => 'any', 'view' => 'business']) }}">
                             <i class="ti ti-briefcase me-2"></i>
                             <span>Business Profile</span>
                         </a>

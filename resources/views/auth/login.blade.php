@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 @section('content')
-    <div class="card login-card shadow-sm">
+    <div class="card auth-card shadow-sm">
         <div class="card-body">
             <div class="text-center mb-4">
                 <h3 style="margin-bottom: 5px;"><strong>{{ $setting->business_name ?? env('EMPTY_STRING') }}</strong></h3>

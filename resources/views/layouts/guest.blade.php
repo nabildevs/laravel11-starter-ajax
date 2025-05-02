@@ -13,9 +13,9 @@
             <div class="loader-fill"></div>
         </div>
     </div>
-    <div class="login-container">
+    <div class="auth-container">
         <div class="logo text-center">
-            <img src="{{ asset('assets/images/logo-dark.svg') }}" alt="Logo">
+            <img src="{{ $setting->business_logo }}" alt="Logo">
         </div>
         @yield('content')
     </div>

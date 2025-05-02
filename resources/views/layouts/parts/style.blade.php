@@ -1,4 +1,5 @@
 {{-- Favicon --}}
+<link rel="icon" href="{{ $setting->business_icon }}" type="image/png" />
 
 {{-- Font/Icons --}}
 <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}">
@@ -40,7 +41,7 @@
         }
 
         /* Guest */
-        .login-container {
+        .auth-container {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -49,7 +50,7 @@
             padding: 2rem;
         }
 
-        .login-card {
+        .auth-card {
             width: 100%;
             max-width: 400px;
         }
@@ -59,7 +60,7 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 60px;
         }
     </style>
 @endpush
