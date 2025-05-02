@@ -100,7 +100,7 @@
                     </a>
                     <div
                         class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown custom-user-dropdown">
-                        <a href="#!" class="dropdown-item">
+                        <a href="{{ route('dashboard') }}" class="dropdown-item">
                             <i class="ti ti-layout-grid"></i>
                             <span>Dashboard</span>
                         </a>
