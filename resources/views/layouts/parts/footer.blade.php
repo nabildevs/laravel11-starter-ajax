@@ -6,7 +6,7 @@
             </div>
             <div class="col-auto my-1">
                 <ul class="list-inline footer-link mb-0">
-                    <li class="list-inline-item"><a
+                    <li class="list-inline-item"><a class="text-primary fw-bold"
                             href="{{ route('dashboard') }}">{{ $setting->business_name ?? 'Dashboard' }}</a>
                     </li>
                 </ul>

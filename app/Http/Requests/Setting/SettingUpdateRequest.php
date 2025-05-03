@@ -16,7 +16,7 @@ class SettingUpdateRequest extends FormRequest
             'business_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:' . env('IMAGE_UPLOAD_SIZE'),
             'business_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:' . env('IMAGE_UPLOAD_SIZE'),
             'business_address' => 'nullable|string',
-            'business_phone' => 'nullable|numeric',
+            'business_phone' => 'nullable|string',
             'business_email' => 'nullable|email|max:255',
         ];
 

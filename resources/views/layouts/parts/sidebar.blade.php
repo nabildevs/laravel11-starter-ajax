@@ -3,12 +3,12 @@
         <div class="m-header">
             {{-- Logo --}}
             <img src="{{ $setting->business_logo }}" class="img-fluid logo-lg d-block mx-auto" alt="logo"
-                style="height: 40px;">
+                style="width: 125px;">
         </div>
         <div class="navbar-content">
             <ul class="pc-navbar">
                 <li class="pc-item active">
-                    <a href="{{ route('dashboard') }}" class="pc-link">
+                    <a href="{{ route('dashboard') }}" class="pc-link d-flex align-items-center">
                         <span class="pc-micon"><i class="ti ti-layout-grid"></i></span>
                         <span class="pc-mtext">Dashboard</span>
                     </a>
@@ -27,8 +27,8 @@
                     </ul>
                 </li> --}}
                 <li class="pc-item">
-                    <a href="../other/sample-page.html" class="pc-link">
-                        <span class="pc-micon"><i class="ti ti-brand-chrome"></i></span>
+                    <a href="../other/sample-page.html" class="pc-link d-flex align-items-center">
+                        <span class="pc-micon"><i class="ti ti-user"></i></span>
                         <span class="pc-mtext">Profile</span>
                     </a>
                 </li>

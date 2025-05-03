@@ -35,8 +35,6 @@ class SettingController extends Controller
         $data = $request->validated();
 
         try {
-            $setting = $this->setting_repo->find($id);
-
             if ($request->hasFile('business_icon')) {
                 Helper::delete_file($setting->business_icon);
 
