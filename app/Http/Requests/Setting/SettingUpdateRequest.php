@@ -18,6 +18,7 @@ class SettingUpdateRequest extends FormRequest
             'business_address' => 'nullable|string',
             'business_phone' => 'nullable|string',
             'business_email' => 'nullable|email|max:255',
+            'business_theme' => 'nullable|string',
         ];
 
         return $rules;

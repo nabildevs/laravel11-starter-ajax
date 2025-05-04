@@ -44,8 +44,38 @@
             <input type="file" class="form-control" name="business_icon" id="business_icon" accept="image/*">
         </div>
     </div>
+    <div class="row mb-3 align-items-center">
+        <label for="business_theme" class="col-12 col-lg-4 col-form-label">Color Theme</label>
+        <div class="col-12 col-lg-8 d-flex align-items-center gap-3">
+            <select name="business_theme" id="business_theme" class="form-select">
+                @for ($i = 1; $i <= 10; $i++)
+                    <option value="preset-{{ $i }}"
+                        {{ $setting->business_theme == 'preset-' . $i ? 'selected' : '' }}>
+                        Preset {{ $i }}
+                    </option>
+                @endfor
+            </select>
+            <div id="theme_preview" class="color-preview"></div>
+        </div>
+    </div>
 
     <div class="d-flex mt-5 justify-content-end">
         <button type="submit" class="btn btn-primary" style="min-width: 100px">Submit</button>
     </div>
 </form>
+
+<script>
+    function updateColorPreview() {
+        const select = document.getElementById('business_theme');
+        const preview = document.getElementById('theme_preview');
+        const selected = select.value;
+
+        preview.className = 'color-preview';
+        preview.classList.add(selected);
+    }
+
+    $(document).ready(function() {
+        updateColorPreview();
+        $('#business_theme').on('change', updateColorPreview);
+    });
+</script>
