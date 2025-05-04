@@ -27,6 +27,7 @@ abstract class BaseRepo
         if ($paginate) {
             return $this->model
                 ->filter($filters)
+                ->orderByDesc('created_at')
                 ->paginate(env('PAGINATION_LIMIT'), ['*'], $alias)
                 ->withQueryString()
                 ->onEachSide(0);

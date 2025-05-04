@@ -2,6 +2,7 @@
 
 namespace App\Trait;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 trait HasCreatorTraits

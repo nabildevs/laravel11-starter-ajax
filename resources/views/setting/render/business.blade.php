@@ -33,14 +33,14 @@
     <div class="row mb-3">
         <label for="business_logo" class="col-12 col-lg-4 col-form-label">Business Logo</label>
         <div class="col-12 col-lg-8">
-            <img src="{{ $setting->business_logo }}" class="img-thumbnail mb-3" style="max-height: 100px">
+            <img src="{{ $setting->business_logo }}" class="img-thumbnail mb-3">
             <input type="file" class="form-control" name="business_logo" id="business_logo" accept="image/*">
         </div>
     </div>
     <div class="row mb-3">
         <label for="business_icon" class="col-12 col-lg-4 col-form-label">Business Icon</label>
         <div class="col-12 col-lg-8">
-            <img src="{{ $setting->business_icon }}" class="img-thumbnail mb-3" style="max-height: 100px">
+            <img src="{{ $setting->business_icon }}" class="img-thumbnail mb-3">
             <input type="file" class="form-control" name="business_icon" id="business_icon" accept="image/*">
         </div>
     </div>

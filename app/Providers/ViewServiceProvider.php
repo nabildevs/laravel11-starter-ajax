@@ -10,6 +10,8 @@ class ViewServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        View::share('default_image', asset('images/no_image.jpg'));
+
         View::composer('*', function ($view) {
             $view->with([
                 'setting' => Setting::first()

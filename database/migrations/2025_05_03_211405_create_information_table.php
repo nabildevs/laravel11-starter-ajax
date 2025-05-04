@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('information', function (Blueprint $table) {
             $table->id();
             $table->foreignId('creator_id')->nullable()->constrained('users')->nullOnDelete()->cascadeOnUpdate();
-            $table->string('business_name')->default('');
-            $table->string('business_icon')->default('');
-            $table->string('business_logo')->default('');
-            $table->text('business_address')->nullable();
-            $table->string('business_phone')->nullable();
-            $table->string('business_email')->nullable();
-            $table->string('business_theme')->nullable();
+            $table->string('image')->nullable();
+            $table->string('title');
+            $table->string('short_description')->nullable();
+            $table->text('description')->nullable();
+            $table->enum('availability', ['available', 'inavailable']);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('information');
     }
 };

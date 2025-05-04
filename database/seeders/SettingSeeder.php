@@ -18,7 +18,8 @@ class SettingSeeder extends Seeder
         ], [
             'business_name'    => 'Business',
             'business_address' => 'Jakarta, ID',
-            'business_phone'   => '+62 9876 54321'
+            'business_phone'   => '+62 9876 54321',
+            'business_theme'   => 'preset-5'
         ]);
     }
 }

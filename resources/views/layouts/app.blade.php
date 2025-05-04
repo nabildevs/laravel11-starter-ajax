@@ -7,7 +7,7 @@
     @stack('css')
 </head>
 
-<body data-pc-preset="preset-5" data-pc-direction="ltr" data-pc-theme="light">
+<body data-pc-preset="{{ $setting->business_theme ?? 'preset-1' }}" data-pc-direction="ltr" data-pc-theme="light">
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>

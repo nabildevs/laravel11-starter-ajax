@@ -16,11 +16,39 @@
 <link rel="stylesheet" href="{{ asset('assets/css/alertify/alertify.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/alertify/bootstrap.min.css') }}">
 
+
+{{-- Customs --}}
 @push('css')
     <style>
         /* General */
         body {
-            background-color: oklch(96.8% 0.007 247.896);
+            background-color: oklch(96.5% 0 0);
+        }
+
+        .img-index {
+            max-width: 5rem;
+            max-height: 3rem;
+            border: none;
+        }
+
+        .img-thumbnail {
+            max-width: 10rem;
+            max-height: 5rem;
+            border: none;
+        }
+
+        .btn-sm {
+            border-radius: 0.375rem;
+        }
+
+        .badge {
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            font-weight: bold;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: oklch(96.5% 0 0);
         }
 
         /* Header */
