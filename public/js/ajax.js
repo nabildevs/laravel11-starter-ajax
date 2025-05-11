@@ -26,13 +26,11 @@ $(document).on('click', '.ajax_modal_btn', function () {
 	modal.removeClass('modal-sm modal-lg modal-xl modal-xxl');
 
 	let modal_size = self.data('modal-size');
-
 	if (modal_size) {
 		modal_dialog.addClass('modal-' + modal_size);
 	}
 
 	modal.modal('show');
-
 	ajaxRenderTo(
 		modal_selector + ' #content',
 		self.data('render-route'),
@@ -87,9 +85,7 @@ $(document).on('click', '.ajax_confirm_btn', function () {
 					},
 				});
 			},
-			function () {
-				// alertify.error("Aksi dibatalkan");
-			}
+			function () {}
 		)
 		.set('labels', { ok: 'Yes', cancel: 'Cancel' });
 });
@@ -130,12 +126,6 @@ $(document).on('submit', '.ajax_form', function (event) {
 			form.find('.form-select')
 				.removeClass('border-danger')
 				.attr('title', '');
-
-			let inputfile_id = form.find(`input[type="file"]`).attr('id');
-			form.find(`.upload_file[data-target-input="#${inputfile_id}"]`)
-				.removeClass('border-danger')
-				.attr('title', '');
-
 			submit_loading = true;
 		},
 
@@ -155,87 +145,51 @@ $(document).on('submit', '.ajax_form', function (event) {
 			if (code == 422) {
 				$.each(data, function (i, v) {
 					let inputField = form.find(`[name="${i}"]`);
+					if (!inputField.length && i.includes('.')) {
+						let baseFieldName = i.split('.')[0];
+						let index = parseInt(i.split('.')[1]);
+						inputField = form
+							.find(`[name="${baseFieldName}[]"]`)
+							.eq(index);
+					}
 					let errorText = inputField.next('.text-danger');
-					let inputfile_id = inputField.attr('id');
+					let inputGroup = inputField.closest('.input-group');
+					let errorGroup = inputGroup.next('.text-danger');
 
 					inputField.addClass('border-danger').attr('title', v[0]);
-					if (!errorText.length) {
-						inputField.after(
-							`<small class="text-danger">${v[0]}</small>`
-						);
+
+					if (inputGroup.length > 0) {
+						if (!errorGroup.length) {
+							inputGroup.after(
+								`<small class="text-danger">${v[0]}</small>`
+							);
+						} else {
+							errorGroup.text(v[0]);
+						}
+
+						inputGroup.on('input', function () {
+							$(this)
+								.removeClass('border-danger')
+								.attr('title', '');
+							$(this).next('.text-danger').remove();
+						});
 					} else {
-						errorText.text(v[0]);
-					}
-					inputField.on('input', function () {
-						$(this).removeClass('border-danger').attr('title', '');
-						$(this).next('.text-danger').remove();
-					});
-					form.find(
-						`.upload_file[data-target-input="#${inputfile_id}"]`
-					)
-						.addClass('border-danger')
-						.attr('title', v[0]);
-
-					// jika multiple file upload
-					// var pattern = /\.\d+/g;
-					// if (pattern.test(i)) {
-					//     var id_clean = i.replace(/\.\d+/g, "");
-					//     let inputfile_id = form.find(`input[type="file"][id="${id_clean}"]`).attr("id");
-					//     form.find(`input[type="file"][id="${inputfile_id}"]`)
-					//     .addClass("border-danger")
-					//     .attr("title", v[0]);
-					// }
-
-					// form.find(`[name="${i}"]`).addClass("border-danger").attr("title", v[0]);
-					// let inputfile_id = form.find(`input[type="file"][id="${i}"]`).attr("id");
-					// form.find(`input[type="file"][id="${i}"]`)
-					// .addClass("border-danger")
-					// .attr("title", v[0]);
-					// form.find(`.upload_file[data-target-input="#${inputfile_id}"]`)
-					//     .addClass("border-danger")
-					//     .attr("title", v[0]);
-				});
-
-				// handle error inputan multiple files
-				let errors_multiple_file_uploads = {};
-
-				$.each(data, function (i, v) {
-					let match = i.match(/^(.+)\.\d+$/);
-					if (match) {
-						let baseName = match[1];
-						if (!errors_multiple_file_uploads[baseName]) {
-							errors_multiple_file_uploads[baseName] = [];
+						if (!errorText.length) {
+							inputField.after(
+								`<small class="text-danger">${v[0]}</small>`
+							);
+						} else {
+							errorText.text(v[0]);
 						}
-						errors_multiple_file_uploads[baseName].push(v[0]);
+
+						inputField.on('input', function () {
+							$(this)
+								.removeClass('border-danger')
+								.attr('title', '');
+							$(this).next('.text-danger').remove();
+						});
 					}
 				});
-
-				$.each(
-					errors_multiple_file_uploads,
-					function (baseName, errors) {
-						let inputField = form.find(`[name="${baseName}[]"]`);
-						if (inputField.length) {
-							let errorText = inputField.next('.text-danger');
-							let errorMessage = errors.join('<br>');
-							if (!errorText.length) {
-								inputField.after(
-									`<small class="text-danger">${errorMessage}</small>`
-								);
-							} else {
-								errorText.html(errorMessage);
-							}
-							inputField
-								.addClass('border-danger')
-								.attr('title', errors[0]);
-							inputField.on('change', function () {
-								$(this)
-									.removeClass('border-danger')
-									.attr('title', '');
-								$(this).next('.text-danger').remove();
-							});
-						}
-					}
-				);
 			} else {
 				alertify.error(message);
 			}
