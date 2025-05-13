@@ -24,13 +24,15 @@ class InformationRepo extends BaseRepo
     public function update($id, array $data)
     {
         $information = $this->model->find($id);
-        return $information->update($data);
+        $information->update($data);
+        return $information;
     }
 
     public function destroy($id)
     {
         $information = $this->model->find($id);
         Helper::delete_file($information->image);
-        return $information->delete();
+        $information->delete();
+        return $information;
     }
 }

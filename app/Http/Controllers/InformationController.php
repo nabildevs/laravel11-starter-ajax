@@ -11,11 +11,11 @@ use App\Http\Requests\Information\InformationUpdateRequest;
 
 class InformationController extends Controller
 {
-    protected $information_epo;
+    protected $information_repo;
 
-    public function __construct(InformationRepo $information_epo)
+    public function __construct(InformationRepo $information_repo)
     {
-        $this->information_repo = $information_epo;
+        $this->information_repo = $information_repo;
     }
 
     public function index()
