@@ -12,5 +12,9 @@
 {{-- Alertify --}}
 <script src="{{ asset('assets/js/alertify.min.js') }}"></script>
 
+{{-- Sweetalert --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 {{-- Modul --}}
 <script src="{{ asset('js/ajax.js') }}"></script>
+<script src="{{ asset('js/alert.js') }}"></script>

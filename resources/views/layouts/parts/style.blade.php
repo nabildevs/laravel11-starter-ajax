@@ -51,5 +51,10 @@
     .preset-8 { background-color: #00a854; }
     .preset-9 { background-color: #009688; }
     .preset-10 { background-color: #f6339a; }
+
+    /* Swal */
+    .swal2-title-custom { font-weight: 400 !important; font-size: 0.85rem !important; }
+    .swal2-toast-custom { box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15); border-radius: 0.375rem;
+    padding: 0.5rem 1rem; font-size: 0.8rem; }
     </style>
 @endpush
